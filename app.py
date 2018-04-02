@@ -171,7 +171,7 @@ def delete(lst):
     l = TodoList.query.filter_by(title=lst).first()
     db.session.delete(l)
     db.session.commit()
-    flash('Deleted list: {}'.format(lst))
+    flash('Deleted list: {}, you have {} more todo lists to get through!'.format(lst, str(len(TodoList.query.all()))))
     return redirect(url_for('all_lists'))
     # Replace with code
     # This code should successfully delete the appropriate todolist
